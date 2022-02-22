@@ -35,7 +35,7 @@ const SignUp = () => {
         password
       );
       const user = userCredential.user;
-      updateProfile({
+      updateProfile(auth.currentUser, {
         displayName: name,
       });
       const formDataCopy = { ...formData };
