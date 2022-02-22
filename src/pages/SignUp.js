@@ -85,6 +85,7 @@ const SignUp = () => {
                 src={visibilityIcon}
                 className="showPassword"
                 alt="showPassword"
+                onClick={() => setShowPassword(!showPassword)}
               />
             </div>
             <Link to="/forgot-password" className="forgotPasswordLink">
