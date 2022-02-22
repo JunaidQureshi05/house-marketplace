@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as ArrowRightComponent } from '../assets/svg/keyboardArrowRightIcon.svg';
+import { toast } from 'react-toastify';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -44,7 +45,7 @@ const SignUp = () => {
       await setDoc(doc(db, 'users', user.uid), formDataCopy);
       navigate('/');
     } catch (e) {
-      console.log(e);
+      toast.error('Somthing went wrong with registration');
     }
   };
   return (
