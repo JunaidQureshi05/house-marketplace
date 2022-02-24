@@ -16,7 +16,6 @@ export const useAuthStatus = () => {
         setCheckingStatus(false);
       });
     }
-
     return () => {
       isMounted.current = false;
     };
