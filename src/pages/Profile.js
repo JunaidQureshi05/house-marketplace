@@ -17,6 +17,7 @@ import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg';
 import homeIcon from '../assets/svg/homeIcon.svg';
 import Listing from './Listing';
 import ListingsItem from '../components/ListingsItem';
+import Spinner from '../components/Spinner';
 const Profile = () => {
   const auth = getAuth();
   const navigate = useNavigate();
@@ -86,6 +87,9 @@ const Profile = () => {
       toast.success('Successfully deleted listing');
     }
   };
+  const onEdit = (listingId) => {
+    navigate(`/edit-listing/${listingId}`);
+  };
   return (
     <div className="profile">
       <header className="profileHeader">
@@ -132,6 +136,7 @@ const Profile = () => {
           <p>Sell or rent your home</p>
           <img src={arrowRight} alt="arrow-right" />
         </Link>
+
         {!loading && listings?.length > 0 && (
           <>
             <p className="listingText">Your Listing</p>
@@ -142,6 +147,7 @@ const Profile = () => {
                   listing={listing.data}
                   id={listing.id}
                   onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
